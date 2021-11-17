@@ -6,15 +6,15 @@ import EachCard from "./EachCard";
 
 export default function CardList({deck, cards, setCards}) {
     const {params:{deckId}} = useRouteMatch();
-    useEffect (() => {
-        const abortController = new AbortController();
-        const cardList = async () => {
-            const response = await listCards(deckId,abortController.signal);
-            setCards(response); 
-        }
-        cardList();
-        return () => abortController.abort();
-    },[deckId, setCards]);
+    // useEffect (() => {
+    //     const abortController = new AbortController();
+    //     const cardList = async () => {
+    //         const response = await listCards(deckId,abortController.signal);
+    //         setCards(response); 
+    //     }
+    //     cardList();
+    //     return () => abortController.abort();
+    // },[deckId, setCards]);
     const cardList = cards.map((card,index) => 
     <div> 
         <EachCard key = {index} deck = {deck} card ={card} cards ={cards} setCards={setCards}/>
