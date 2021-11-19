@@ -17,9 +17,9 @@ export default function DeckList({decks, setDecks}) {
 
     //Using map to return each Deck from the "decks" Arr and pass deck, decks, setDeck to it
     const deckList = decks.map((deck,index) => 
-    <div> 
-        <EachDeck key = {index} deck ={deck} decks ={decks} setDecks = {setDecks}/>
-    </div>
+        <div> 
+            <EachDeck key = {index} deck ={deck} decks ={decks} setDecks = {setDecks}/>
+        </div>
     ); 
     return <div>
         {deckList}

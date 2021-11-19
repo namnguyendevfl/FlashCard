@@ -1,0 +1,37 @@
+1. JSX
+- HTML like syntax
+- defines an UI element right inside your React code
+- is an expression => can save it in a variable
+- embeded JS code inside JSX by using curly braces
+- use () to enable all of these elements to take up multiple lines within this element
+- add attributes much like you can in HTML
+- store attribules in variable and embed it into JSX
+- only have a single top-level JSX element
+- need to use a fragment for multiple top-level JSX elements
+
+2. Single-responsibility principle
+- each module, function, or component in a program should have responsibility for one single part of the program
+
+3. component
+- single part of UI
+- can be reused in multiple places
+- made up of elements, with specific properties for your application
+- each component should have one thing that it does following single-responsi. principle
+
+4. Export
+- default
+    + a file has a single Export
+    + one of the exports will be used more often than others
+- you can have 1 default export and any number of named exports 
+
+5. State
+- is owned, and updated by the component
+- refers to data affects how an app behaves and is rendered
+
+6. Props: passed in a component from the parent component
+
+7. Functional component
+- a function that returns JSX
+
+8. Controlled component
+- a component whose value is managed 

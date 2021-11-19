@@ -25,8 +25,6 @@ export default function DeckView({deck, cards, setCards, decks, setDecks}) {
                     <TrashDeckBtn deckId = {id} deck = {deck} decks = {decks} setDecks = {setDecks}/>
                 </div>
             </div>
-        
-        
         {/* Create a list of Cards */}
         <div>
             <CardList cards={cards} setCards={setCards} deck ={deck}/>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useEffect} from "react"
 import {Switch,Route, useRouteMatch} from "react-router-dom"
 import { readDeck } from "../utils/api/index.js"
 import AddCard from "./AddCard/AddCard"
@@ -7,18 +7,22 @@ import DeckView from "./DeckView"
 import EditDeck from "./EditDeck/EditDeck"
 import StudyDeck from "./StudyDeck/StudyDeck"
 
-function Deck ({decks, setDecks}) {
+function Deck ({decks, setDecks, cards, setCards, deck, setDeck}) {
     //We got the Id from link  
     //We need to call all the cards
-    const [deck,setDeck] = useState({});
-    const [cards,setCards] = useState([]);
+    // const [deck,setDeck] = useState({});
+    // const [cards,setCards] = useState([]);
     const {path, params:{deckId}}  = useRouteMatch();
-
     useEffect(() => {
         const abortController = new AbortController();
         const loadDeck = async () => {
-        const response = await readDeck(deckId,abortController.signal);
-        setDeck(response);
+            try{
+                const response = await readDeck(deckId,abortController.signal);
+                setDeck(response);
+            } catch(error){
+                if(error.name === "AbortError") console.log("Aborted")
+                throw error
+            }
         }
         loadDeck();
         return () => abortController.abort();

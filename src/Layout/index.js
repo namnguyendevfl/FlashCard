@@ -9,6 +9,8 @@ import NotFound from "./NotFound";
 function Layout() {
   //Create decks and setDecks state variables to share decks and setDecks to its child component 
   const [decks, setDecks] = useState([])
+  const [deck,setDeck] = useState({});
+  const [cards, setCards] = useState([])
   return (
     <div>
       <Header />
@@ -27,7 +29,9 @@ function Layout() {
           </Route>
           {/* Render a Deck component when its path matches the URL decks/${deckId} */}
           <Route path = "/decks/:deckId">
-            <Deck decks = {decks} setDecks = {setDecks}/>
+            <Deck decks = {decks} setDecks = {setDecks} 
+                  cards = {cards} setCards = {setCards}
+                  deck = {deck} setDeck = {setDeck} />
           </Route>
            {/* Render the NotFound component when no other route is matched */}
           <Route path="*">

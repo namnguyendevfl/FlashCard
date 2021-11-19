@@ -14,15 +14,10 @@ export default function BreadCrumb({deck, cards}) {
     }
     loadCards()
     const subUrl = url.split('/')
-    console.log(subUrl)
-    console.log(deck)
     const breadcrumb = "breadcrumb";
     const list = subUrl.map((aSubUrl,index) =>  {
-        console.clear()
-        console.log(index)
         const breadcrumbItem = "breadcrumb-item";
         const activeBreadcrumbItem = "breadcrumb-item active";
-
     if (aSubUrl === "" && index === 0) return <li className={breadcrumbItem} > <Link to = "/"> <span className = "oi oi-home"/> Home </Link></li>; //with the last splash
     if (aSubUrl === "new" && deck === undefined) return <li className={activeBreadcrumbItem} > Create Deck</li>; //w/o the last splash
     if (index === subUrl.length-1 && aSubUrl === deckId) return <li className={activeBreadcrumbItem}>{deck.name}</li>
